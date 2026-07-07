@@ -14,191 +14,242 @@
     <!-- Header / Navigation -->
     <header class="fixed top-0 left-0 w-full bg-slate-900/80 backdrop-blur-md z-50 border-b border-slate-800">
         <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-wider text-teal-400">SK.</a>
-            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400">
-                <a href="#about" class="hover:text-teal-400 transition-colors">About</a>
-                <a href="#experience" class="hover:text-teal-400 transition-colors">Experience</a>
-                <a href="#skills" class="hover:text-teal-400 transition-colors">Skills</a>
-                <a href="#contact" class="hover:text-teal-400 transition-colors">Contact</a>
+            <a href="#" class="text-xl font-bold tracking-wider text-teal-400 font-mono">Init. Build. Deploy.</a>
+            <nav class="hidden md:flex space-x-8 text-sm font-medium text-slate-400 font-mono">
+                <a href="#about" class="hover:text-teal-400 transition-colors">terminal</a>
+                <a href="#experience" class="hover:text-teal-400 transition-colors">experience</a>
+                <a href="#skills" class="hover:text-teal-400 transition-colors">skills</a>
+                <a href="#contact" class="hover:text-teal-400 transition-colors">contact</a>
             </nav>
         </div>
     </header>
 
-    <!-- Hero / About Section -->
-    <section id="about" class="min-h-screen flex items-center pt-24 pb-12 px-6 max-w-5xl mx-auto">
-        <div class="space-y-6 md:max-w-2xl">
-            <p class="text-teal-400 font-mono tracking-widest text-sm">Hi, my name is</p>
-            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-100 tracking-tight">
-                Shreejesh Karki
-            </h1>
-            <h2 class="text-2xl md:text-3xl font-semibold text-slate-400">
-                Building connections through technology, DevOps, and communication.
-            </h2>
-            <p class="text-slate-400 leading-relaxed text-lg">
-                To be part of an organization and work in a challenging environment which offers an opportunity to develop professionally and contribute significantly to the growth of the organization.
-            </p>
-            <div class="pt-4 flex flex-wrap gap-4">
-                <a href="#contact" class="px-6 py-3 border border-teal-400 text-teal-400 font-medium rounded hover:bg-teal-400/10 transition-all duration-300">
-                    Get In Touch
-                </a>
-                <a href="#experience" class="px-6 py-3 bg-slate-800 text-slate-200 font-medium rounded hover:bg-slate-700 transition-all duration-300">
-                    View My Work
-                </a>
+    <!-- Top Live System Status Bar -->
+    <div class="pt-20 bg-slate-950/40 border-b border-slate-800/60 font-mono text-xs text-slate-400">
+        <div class="max-w-5xl mx-auto px-6 py-2.5 flex flex-wrap items-center justify-between gap-2">
+            <div class="flex items-center space-x-4">
+                <span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span> Available for work.</span>
+                <span class="text-slate-600">|</span>
+                <span><i class="fa-solid fa-location-dot text-teal-500/80 mr-1"></i> Kathmandu, Nepal</span>
             </div>
+            <div class="flex items-center space-x-2">
+                <span class="text-slate-500">Local Time:</span>
+                <span id="live-clock" class="text-teal-400 font-bold">--:--:-- NPT</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="min-h-[calc(screen-5rem)] pt-12 pb-16 px-6 max-w-5xl mx-auto flex flex-col justify-center">
+        <div class="grid gap-12 md:grid-cols-12 items-center">
+            
+            <!-- Left Side: Bio (Avatar Wrapper and Image Removed Successfully) -->
+            <div class="space-y-6 md:col-span-6">
+                <div class="space-y-2">
+                    <p class="text-teal-400 font-mono tracking-widest text-sm">Main System Node</p>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-100 tracking-tight">
+                        Shreejesh Karki
+                    </h1>
+                    <!-- Interactive Typewriter Subtitle -->
+                    <h2 class="text-lg font-mono text-slate-400 h-8 flex items-center">
+                        <span>$ role&nbsp;</span>
+                        <span id="typewriter" class="text-teal-400 border-r-2 border-teal-400 animate-pulse"></span>
+                    </h2>
+                </div>
+                
+                <p class="text-slate-400 leading-relaxed text-sm font-sans max-w-md">
+                    To be part of an organization and work in a challenging environment which offers an opportunity to develop professionally and contribute significantly to the growth of the organization.
+                </p>
+                <div class="pt-2 flex flex-wrap gap-4 font-mono text-xs">
+                    <a href="#contact" class="px-4 py-2 border border-teal-400 text-teal-400 rounded hover:bg-teal-400/10 transition-all">
+                        Ctrl ` Contact
+                    </a>
+                    <a href="#experience" class="px-4 py-2 bg-slate-800 text-slate-300 rounded hover:bg-slate-700 transition-all">
+                        cat experience.md
+                    </a>
+                </div>
+            </div>
+
+            <!-- Right Side: Interactive Shell Terminal -->
+            <div class="md:col-span-6 w-full">
+                <div class="w-full bg-slate-950/90 rounded-lg shadow-2xl border border-slate-800/80 font-mono text-xs overflow-hidden">
+                    <!-- Terminal Header Bar -->
+                    <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-slate-800">
+                        <div class="flex space-x-1.5">
+                            <span class="w-3 h-3 rounded-full bg-slate-800 inline-block"></span>
+                            <button id="terminal-minimize-btn" class="w-3 h-3 rounded-full bg-amber-500/80 inline-block hover:bg-amber-400 transition-colors focus:outline-none" title="Minimize/Maximize System Terminal"></button>
+                            <span class="w-3 h-3 rounded-full bg-slate-800 inline-block"></span>
+                        </div>
+                        <span class="text-slate-500 text-[11px] font-bold select-none" id="terminal-title">guest@crjex-shell: ~</span>
+                        <span class="text-slate-600 text-[10px] uppercase tracking-wider font-bold">bash</span>
+                    </div>
+                    
+                    <!-- Terminal Screen Output Logs -->
+                    <div id="terminal-body" class="p-5 h-72 overflow-y-auto space-y-2.5 text-slate-300 scrollbar-thin transition-all duration-300 block bg-slate-950/60">
+                        <div class="text-slate-500 border-b border-slate-900 pb-2 mb-2">
+                            <span>System Diagnostics Version 1.2.0 (Ubuntu LTS)</span><br>
+                            <span>Enter '<span class="text-teal-400 font-bold">help</span>' to inspect valid system object flags.</span>
+                        </div>
+                        
+                        <div id="terminal-history" class="space-y-2"></div>
+                        
+                        <!-- Terminal Input Row -->
+                        <div class="flex items-center space-x-2 pt-1">
+                            <span class="text-teal-400 font-bold">~</span>
+                            <span class="text-slate-500">&gt;</span>
+                            <input id="terminal-input" type="text" autofocus class="bg-transparent text-slate-100 focus:outline-none flex-grow" autocomplete="off" spellcheck="false">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
+    <section id="experience" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800/80">
         <div class="flex items-center space-x-4 mb-12">
-            <h2 class="text-3xl font-bold text-slate-200">Where I've Worked</h2>
-            <div class="h-[1px] bg-slate-700 flex-grow"></div>
+            <h2 class="text-2xl font-bold text-slate-200 font-mono"><span class="text-teal-400">01.</span> Professional Registry</h2>
+            <div class="h-[1px] bg-slate-800 flex-grow"></div>
         </div>
         
         <div class="space-y-12">
-            <!-- Job 1: DevOps -->
-            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/30 hover:before:bg-teal-400 transition-all">
-                <div class="absolute w-3 h-3 bg-slate-900 border-2 border-teal-400 rounded-full -left-[5px] top-[6px]"></div>
+            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/20 hover:before:bg-teal-400 transition-all">
+                <div class="absolute w-2 h-2 bg-slate-900 border-2 border-teal-400 rounded-full -left-[3px] top-[8px]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                    <h3 class="text-xl font-bold text-slate-200">Devops Engineer</h3>
-                    <span class="text-sm font-mono text-slate-400 mt-1 md:mt-0">Apr 2026 - Present</span>
+                    <h3 class="text-lg font-bold text-slate-200">Devops Engineer</h3>
+                    <span class="text-xs font-mono text-slate-400 mt-1 md:mt-0">Apr 2026 - Present</span>
                 </div>
-                <p class="text-teal-400 font-medium text-sm mt-1">Professional Infrastructure Operations</p>
-                <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+                <p class="text-teal-400 font-mono text-xs mt-0.5">Professional Infrastructure Operations</p>
+                <p class="text-slate-400 mt-3 text-sm leading-relaxed font-sans">
                     Focusing on system environment configurations, automation workflows, and streamlining pipeline integrations to boost operational efficiency and maintain critical network components.
                 </p>
             </div>
 
-            <!-- Job 2 -->
-            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/30 hover:before:bg-teal-400 transition-all">
-                <div class="absolute w-3 h-3 bg-slate-900 border-2 border-teal-400 rounded-full -left-[5px] top-[6px]"></div>
+            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/20 hover:before:bg-teal-400 transition-all">
+                <div class="absolute w-2 h-2 bg-slate-900 border-2 border-teal-400 rounded-full -left-[3px] top-[8px]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                    <h3 class="text-xl font-bold text-slate-200">Medical and Legal Interpreter</h3>
-                    <span class="text-sm font-mono text-slate-400 mt-1 md:mt-0">Mar 2024 – Dec 2025</span>
+                    <h3 class="text-lg font-bold text-slate-200">Medical and Legal Interpreter</h3>
+                    <span class="text-xs font-mono text-slate-400 mt-1 md:mt-0">Mar 2024 – Dec 2025</span>
                 </div>
-                <p class="text-teal-400 font-medium text-sm mt-1">Staccato Global Technologies</p>
-                <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+                <p class="text-teal-400 font-mono text-xs mt-0.5">Staccato Global Technologies</p>
+                <p class="text-slate-400 mt-3 text-sm leading-relaxed font-sans">
                     Facilitated precise, real-time communication within high-stakes medical and legal environments, maintaining strong industry standards and linguistic integrity.
                 </p>
             </div>
 
-            <!-- Job 3 -->
-            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/30 hover:before:bg-teal-400 transition-all">
-                <div class="absolute w-3 h-3 bg-slate-900 border-2 border-teal-400 rounded-full -left-[5px] top-[6px]"></div>
+            <div class="relative pl-8 before:content-[''] before:absolute before:left-0 before:top-2 before:bottom-0 before:w-[2px] before:bg-teal-500/20 hover:before:bg-teal-400 transition-all">
+                <div class="absolute w-2 h-2 bg-slate-900 border-2 border-teal-400 rounded-full -left-[3px] top-[8px]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                    <h3 class="text-xl font-bold text-slate-200">Junior Network Analyst</h3>
-                    <span class="text-sm font-mono text-slate-400 mt-1 md:mt-0">Dec 2022 – Dec 2024</span>
+                    <h3 class="text-lg font-bold text-slate-200">Junior Network Analyst</h3>
+                    <span class="text-xs font-mono text-slate-400 mt-1 md:mt-0">Dec 2022 – Dec 2024</span>
                 </div>
-                <p class="text-teal-400 font-medium text-sm mt-1">Panda Infosys PVT LTD</p>
-                <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+                <p class="text-teal-400 font-mono text-xs mt-0.5">Panda Infosys PVT LTD</p>
+                <p class="text-slate-400 mt-3 text-sm leading-relaxed font-sans">
                     Assisted in network monitoring, infrastructure diagnostics, configuration updates, and local architectural management such as VLANs.
                 </p>
             </div>
 
-            <!-- Job 4 -->
             <div class="relative pl-8">
-                <div class="absolute w-3 h-3 bg-slate-900 border-2 border-teal-400 rounded-full -left-[5px] top-[6px]"></div>
+                <div class="absolute w-2 h-2 bg-slate-900 border-2 border-teal-400 rounded-full -left-[3px] top-[8px]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline">
-                    <h3 class="text-xl font-bold text-slate-200">Internship on Front End Development</h3>
-                    <span class="text-sm font-mono text-slate-400 mt-1 md:mt-0">Mar 2021 – Jun 2021</span>
+                    <h3 class="text-lg font-bold text-slate-200">Internship on Front End Development</h3>
+                    <span class="text-xs font-mono text-slate-400 mt-1 md:mt-0">Mar 2021 – Jun 2021</span>
                 </div>
-                <p class="text-teal-400 font-medium text-sm mt-1">Sajilo Khoj PVT LTD</p>
-                <p class="text-slate-400 mt-3 text-sm leading-relaxed">
+                <p class="text-teal-400 font-mono text-xs mt-0.5">Sajilo Khoj PVT LTD</p>
+                <p class="text-slate-400 mt-3 text-sm leading-relaxed font-sans">
                     Developed interactive interfaces, debugged layout configurations, and translated UX mockups into functional visual layouts.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Skills & Languages Section -->
-    <section id="skills" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800">
-        <div class="flex items-center space-x-4 mb-12">
-            <h2 class="text-3xl font-bold text-slate-200">Skills & Languages</h2>
-            <div class="h-[1px] bg-slate-700 flex-grow"></div>
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 px-6 max-w-5xl mx-auto border-t border-slate-800/80">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-12">
+            <div class="flex items-center space-x-4 flex-grow">
+                <h2 class="text-2xl font-bold text-slate-200 font-mono"><span class="text-teal-400">02.</span> Skill Matrices</h2>
+                <div class="h-[1px] bg-slate-800 flex-grow"></div>
+            </div>
+            <div class="relative w-full md:w-72">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+                <input id="skill-search" type="text" placeholder="Filter parameters..." class="w-full bg-slate-950 border border-slate-800 rounded px-9 py-1.5 text-xs text-slate-200 font-mono focus:outline-none focus:border-teal-400 transition-all">
+            </div>
         </div>
 
         <div class="grid gap-12 md:grid-cols-3 items-start">
-            <!-- Expanded Tech Tools (Takes 2 columns layout on medium screens for clear layout) -->
             <div class="md:col-span-2 space-y-6">
-                <h3 class="text-lg font-semibold text-slate-200 mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-laptop-code text-teal-400 text-sm"></i> Technical & DevOps Tools
+                <h3 class="text-sm font-mono text-slate-400 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-teal-400 text-xs"></i> core_infrastructure_sets
                 </h3>
-                
-                <div class="grid gap-6 sm:grid-cols-2">
-                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-800 hover:border-slate-700 transition-all">
-                        <h4 class="text-sm font-semibold text-teal-400 flex items-center gap-2 mb-1">
-                            <span>▹</span> Linux Systems Administration
+                <div class="grid gap-4 sm:grid-cols-2">
+                    <div class="skill-card bg-slate-950/40 p-4 rounded border border-slate-850 hover:border-slate-800 transition-all" data-keywords="linux ubuntu systems admin configurations ssh cron shell commands">
+                        <h4 class="text-xs font-mono text-teal-400 flex items-center gap-2 mb-1.5">
+                            <span>#</span> Linux Systems Administration
                         </h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <p class="text-xs text-slate-400 leading-relaxed font-sans">
                             Proficient in Ubuntu Server environment management, secure shell (SSH) configurations, user group permissions, background automation using cron jobs, and efficient shell command line redirections.
                         </p>
                     </div>
-
-                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-800 hover:border-slate-700 transition-all">
-                        <h4 class="text-sm font-semibold text-teal-400 flex items-center gap-2 mb-1">
-                            <span>▹</span> VLAN & Local Network Architecture
+                    <div class="skill-card bg-slate-950/40 p-4 rounded border border-slate-850 hover:border-slate-800 transition-all" data-keywords="vlan networks architecture monitoring diagnostics logs components local layout routing">
+                        <h4 class="text-xs font-mono text-teal-400 flex items-center gap-2 mb-1.5">
+                            <span>#</span> VLAN & Network Architecture
                         </h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <p class="text-xs text-slate-400 leading-relaxed font-sans">
                             Experienced in diagnosing physical layer issues, configuring Virtual LAN architectures, monitoring internal bandwidth, mapping infrastructure components, and handling diagnostics logs.
                         </p>
                     </div>
-
-                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-800 hover:border-slate-700 transition-all">
-                        <h4 class="text-sm font-semibold text-teal-400 flex items-center gap-2 mb-1">
-                            <span>▹</span> WSL & Local Environments
+                    <div class="skill-card bg-slate-950/40 p-4 rounded border border-slate-850 hover:border-slate-800 transition-all" data-keywords="wsl windows subsystem linux developer environment tools remote access profiles vscode ide">
+                        <h4 class="text-xs font-mono text-teal-400 flex items-center gap-2 mb-1.5">
+                            <span>#</span> WSL & Development Profiles
                         </h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <p class="text-xs text-slate-400 leading-relaxed font-sans">
                             Skilled in setting up isolated Linux developer tools directly inside Windows Subsystem for Linux (WSL), pairing instance infrastructures seamlessly with remote host access profiles via IDEs.
                         </p>
                     </div>
-
-                    <div class="bg-slate-800/40 p-4 rounded-lg border border-slate-800 hover:border-slate-700 transition-all">
-                        <h4 class="text-sm font-semibold text-teal-400 flex items-center gap-2 mb-1">
-                            <span>▹</span> Hardware Configuration & Utility Tools
+                    <div class="skill-card bg-slate-950/40 p-4 rounded border border-slate-850 hover:border-slate-800 transition-all" data-keywords="hardware firmware utility tools troubleshooting adb android debugging terminal setup tracking servers">
+                        <h4 class="text-xs font-mono text-teal-400 flex items-center gap-2 mb-1.5">
+                            <span>#</span> Hardware Utility Implementations
                         </h4>
-                        <p class="text-xs text-slate-400 leading-relaxed">
+                        <p class="text-xs text-slate-400 leading-relaxed font-sans">
                             Familiar with troubleshooting firmware systems, terminal Android Debug Bridge (ADB) configurations, low-level platform modifications, and deploying productivity tracking suites across team servers.
                         </p>
                     </div>
                 </div>
             </div>
 
-            <!-- Soft Skills & Languages (Combined in the 3rd Column) -->
-            <div class="space-y-8">
-                <!-- Soft Skills -->
+            <div class="space-y-8 font-mono text-xs">
                 <div>
-                    <h3 class="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-user-gear text-teal-400 text-sm"></i> Soft Skills
+                    <h3 class="text-slate-400 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-teal-400 text-xs"></i> operational_traits
                     </h3>
-                    <ul class="space-y-2 text-slate-400 text-sm">
-                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Leadership</li>
-                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Communication Skills</li>
-                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Time Management</li>
-                        <li class="flex items-center gap-2"><span class="text-teal-400">▹</span> Teamwork</li>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="skill-card flex items-center gap-2" data-keywords="leadership manager lead"><span class="text-teal-500">_</span> Leadership</li>
+                        <li class="skill-card flex items-center gap-2" data-keywords="communication talking translation interpreting language signs english"><span class="text-teal-500">_</span> Clear Communication</li>
+                        <li class="skill-card flex items-center gap-2" data-keywords="time management scheduling tracking punctuality speed"><span class="text-teal-500">_</span> Time Optimization</li>
+                        <li class="skill-card flex items-center gap-2" data-keywords="teamwork collaboration group projects people"><span class="text-teal-500">_</span> Cohesive Collaboration</li>
                     </ul>
                 </div>
-
-                <!-- Languages -->
                 <div>
-                    <h3 class="text-lg font-semibold text-slate-200 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-language text-teal-400 text-sm"></i> Languages
+                    <h3 class="text-slate-400 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-teal-400 text-xs"></i> linguistic_layers
                     </h3>
-                    <div class="space-y-3">
-                        <div>
-                            <div class="flex justify-between text-sm text-slate-400 mb-1">
+                    <div class="space-y-4 font-sans">
+                        <div class="skill-card" data-keywords="english language c1 native fluent speaking">
+                            <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
                                 <span>English (EF Set C1)</span>
-                                <span class="font-mono text-xs text-teal-400">67/100</span>
+                                <span class="text-teal-400">67/100</span>
                             </div>
-                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
                                 <div class="bg-teal-400 h-full w-[85%]"></div>
                             </div>
                         </div>
-                        <div>
-                            <div class="flex justify-between text-sm text-slate-400 mb-1">
+                        <div class="skill-card" data-keywords="japanese language n4 level speaking basic conversation">
+                            <div class="flex justify-between text-xs font-mono text-slate-400 mb-1">
                                 <span>Japanese</span>
-                                <span class="font-mono text-xs text-teal-400">N4 Level</span>
+                                <span class="text-teal-400">N4 Level</span>
                             </div>
-                            <div class="w-full bg-slate-800 h-1.5 rounded-full overflow-hidden">
+                            <div class="w-full bg-slate-950 h-1 rounded-full overflow-hidden">
                                 <div class="bg-teal-400 h-full w-[45%]"></div>
                             </div>
                         </div>
@@ -209,41 +260,192 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-24 px-6 max-w-xl mx-auto text-center border-t border-slate-800">
-        <h2 class="text-4xl font-bold text-slate-200 mb-4">Get In Touch</h2>
-        <p class="text-slate-400 mb-8 text-sm leading-relaxed">
-            Whether you have a professional opportunity, a networking request, or just want to connect, feel free to drop a message!
-        </p>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-            <a href="mailto:shreejeshkarki@gmail.com" class="w-full sm:w-auto px-6 py-3 bg-teal-500 text-slate-900 font-semibold rounded hover:bg-teal-400 transition-all flex items-center justify-center gap-2">
-                <i class="fa-regular fa-envelope"></i> Email Me
-            </a>
-            <a href="tel:+9779842626338" class="w-full sm:w-auto px-6 py-3 border border-slate-700 text-slate-300 font-semibold rounded hover:bg-slate-800 transition-all flex items-center justify-center gap-2">
-                <i class="fa-solid fa-phone"></i> +977-9842626338
-            </a>
+    <section id="contact" class="py-24 px-6 max-w-xl mx-auto border-t border-slate-800/80">
+        <div class="text-center mb-10">
+            <h2 class="text-3xl font-bold text-slate-200 font-mono mb-3">Initialize Contact</h2>
+            <p class="text-slate-400 text-xs font-mono">
+                Submit an integration payload directly into the standard inbox layer.
+            </p>
         </div>
+
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-4 font-mono text-xs">
+            <input type="hidden" name="access_key" value="39882bc8-f172-40c6-857d-7fcbafbc33d4">
+            <div class="grid gap-4 sm:grid-cols-2">
+                <input type="text" name="name" placeholder="Payload Sender Name" required class="w-full bg-slate-950 border border-slate-800 rounded px-4 py-3 text-slate-200 focus:outline-none focus:border-teal-500 transition-colors">
+                <input type="email" name="email" placeholder="Return Routing Address" required class="w-full bg-slate-950 border border-slate-800 rounded px-4 py-3 text-slate-200 focus:outline-none focus:border-teal-500 transition-colors">
+            </div>
+            <input type="text" name="subject" placeholder="Subject Flag" required class="w-full bg-slate-950 border border-slate-800 rounded px-4 py-3 text-slate-200 focus:outline-none focus:border-teal-500 transition-colors">
+            <textarea name="message" rows="5" placeholder="Message content payload..." required class="w-full bg-slate-950 border border-slate-800 rounded px-4 py-3 text-slate-200 focus:outline-none focus:border-teal-500 transition-colors resize-none font-sans text-sm"></textarea>
+            
+            <button type="submit" class="w-full py-3.5 bg-teal-500 hover:bg-teal-400 text-slate-950 font-bold rounded shadow-lg transition-all flex items-center justify-center gap-2 uppercase tracking-wider text-xs">
+                <i class="fa-solid fa-arrow-turn-down-left"></i> Execute Delivery
+            </button>
+            <p id="form-status" class="text-center font-mono mt-2 hidden"></p>
+        </form>
     </section>
 
-    <!-- Footer with Social/Networking Focus -->
-    <footer class="py-12 text-center border-t border-slate-800/50 bg-slate-950/20">
-        <div class="flex justify-center space-x-6 mb-6 text-slate-400 text-lg">
-            <a href="https://github.com/crjex" target="_blank" class="hover:text-teal-400 transition-colors" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-            </a>
-            <a href="https://www.linkedin.com/in/shreejesh-karki-65a076172" target="_blank" class="hover:text-teal-400 transition-colors" title="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-            </a>
-            <a href="https://upwork.com/#" target="_blank" class="hover:text-teal-400 transition-colors" title="Upwork">
-                <i class="fa-brands fa-upwork"></i>
-            </a>
+    <!-- Footer -->
+    <footer class="py-12 text-center border-t border-slate-800/40 bg-slate-950/40 font-mono text-xs">
+        <div class="flex justify-center space-x-6 mb-6 text-slate-500 text-base">
+            <a href="https://github.com/crjex" target="_blank" class="hover:text-teal-400 transition-colors" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/shreejesh-karki-65a076172" target="_blank" class="hover:text-teal-400 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://upwork.com/#" target="_blank" class="hover:text-teal-400 transition-colors" title="Upwork"><i class="fa-brands fa-upwork"></i></a>
         </div>
-        <div class="flex justify-center space-x-6 mb-4 text-xs font-mono text-slate-500">
-            <a href="#about" class="hover:text-teal-400 transition-colors">Back To Top</a>
-        </div>
-        <p class="text-xs font-mono text-slate-600">
-            © 2026 Shreejesh Karki. All rights reserved.
-        </p>
+        <p class="text-slate-600">© 2026 Shreejesh Karki. Node configuration completed.</p>
     </footer>
 
+    <!-- INTERACTIVE JAVASCRIPT ENGINES -->
+    <script>
+        // LIVE TIME ENGINE (NPT)
+        function updateClock() {
+            const clockElement = document.getElementById('live-clock');
+            const options = { timeZone: 'Asia/Kathmandu', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+            const timeString = new Intl.DateTimeFormat('en-US', options).format(new Date());
+            clockElement.textContent = `${timeString} NPT`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        // 1. TYPEWRITER EFFECT ENGINE
+        const typewriterElement = document.getElementById('typewriter');
+        const roles = ["DevOps Infrastructure.", "System Automations.", "Network Architectures."];
+        let roleIndex = 0; let charIndex = 0; let isDeleting = false;
+
+        function type() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            let typeSpeed = isDeleting ? 40 : 100;
+            if (!isDeleting && charIndex === currentRole.length) {
+                typeSpeed = 1500; isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false; roleIndex = (roleIndex + 1) % roles.length; typeSpeed = 400;
+            }
+            setTimeout(type, typeSpeed);
+        }
+        document.addEventListener('DOMContentLoaded', () => setTimeout(type, 500));
+
+        // 2. LIVE SKILLS SEARCH ENGINE
+        const searchInput = document.getElementById('skill-search');
+        const skillCards = document.querySelectorAll('.skill-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            skillCards.forEach(card => {
+                const keywords = card.getAttribute('data-keywords').toLowerCase();
+                const cardText = card.textContent.toLowerCase();
+                if (query === '' || keywords.includes(query) || cardText.includes(query)) {
+                    card.style.display = '';
+                } else card.style.display = 'none';
+            });
+        });
+
+        // 3. DYNAMIC FORM PROCESSING ENGINE
+        const form = document.getElementById('contact-form');
+        const statusText = document.getElementById('form-status');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            statusText.classList.remove('hidden', 'text-emerald-400', 'text-rose-400');
+            statusText.classList.add('text-slate-400');
+            statusText.textContent = "[!] Initializing connection...";
+            const formData = new FormData(form);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST', headers: {'Content-Type': 'application/json', 'Accept': 'application/json'},
+                body: JSON.stringify(Object.fromEntries(formData))
+            })
+            .then(async (response) => {
+                if (response.status == 200) {
+                    statusText.classList.replace('text-slate-400', 'text-emerald-400');
+                    statusText.textContent = "[✓] Data package deployed successfully."; form.reset();
+                } else {
+                    statusText.classList.replace('text-slate-400', 'text-rose-400');
+                    statusText.textContent = "[X] Error transmission failed.";
+                }
+            }).catch(() => {
+                statusText.classList.replace('text-slate-400', 'text-rose-400');
+                statusText.textContent = "[X] Network route unavailable.";
+            }).then(() => setTimeout(() => statusText.classList.add('hidden'), 6000));
+        });
+
+        // 4. INTERACTIVE TERMINAL ENGINE
+        const terminalInput = document.getElementById('terminal-input');
+        const terminalHistory = document.getElementById('terminal-history');
+        const terminalBody = document.getElementById('terminal-body');
+        const minimizeBtn = document.getElementById('terminal-minimize-btn');
+        const terminalTitle = document.getElementById('terminal-title');
+
+        minimizeBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (terminalBody.classList.contains('block')) {
+                terminalBody.classList.replace('block', 'hidden');
+                terminalTitle.textContent = "guest@crjex-shell: ~ [Minimized]";
+                terminalTitle.classList.replace('text-slate-500', 'text-amber-400');
+            } else {
+                terminalBody.classList.replace('hidden', 'block');
+                terminalTitle.textContent = "guest@crjex-shell: ~";
+                terminalTitle.classList.replace('text-amber-400', 'text-slate-500');
+                terminalInput.focus();
+            }
+        });
+
+        terminalInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                const command = this.value.trim();
+                const commandLower = command.toLowerCase();
+                
+                if (command === '') return;
+
+                const userLine = document.createElement('div');
+                userLine.innerHTML = `<span class="text-teal-400 font-bold">~</span> <span class="text-slate-500">&gt;</span> <span class="text-slate-100">${command}</span>`;
+                terminalHistory.appendChild(userLine);
+
+                const responseLine = document.createElement('div');
+                responseLine.classList.add('text-slate-400', 'pl-4', 'whitespace-pre-line', 'border-l', 'border-slate-800');
+
+                switch(commandLower) {
+                    case 'help':
+                        responseLine.innerHTML = `Valid system targets:
+                        <span class="text-teal-400 font-bold">about</span>    - Diagnostics bio
+                        <span class="text-teal-400 font-bold">skills</span>   - Operational environments matrices
+                        <span class="text-teal-400 font-bold">contact</span>  - Structural metadata contacts
+                        <span class="text-teal-400 font-bold">clear</span>    - Flush terminal output buffer`;
+                        break;
+                    case 'about':
+                        responseLine.textContent = "Shreejesh Karki - Specializing in Linux operating architecture, automated environmental routing workflows, and enterprise scale network diagnostic mappings.";
+                        break;
+                    case 'skills':
+                        responseLine.textContent = "* Linux Server Management & Shell Routing\n* Virtual LAN Architecture Deployments\n* WSL Sandboxing and Container Host Integrations";
+                        break;
+                    case 'contact':
+                        responseLine.innerHTML = "Mail: shreejeshkarki@gmail.com\nTel: +977-9842626338\nIdentity Pointer: crjex";
+                        break;
+                    case 'clear':
+                        terminalHistory.innerHTML = '';
+                        responseLine.textContent = '';
+                        break;
+                    default:
+                        responseLine.textContent = `bash: command not found: ${command}. Invoke 'help' to review available system pointers.`;
+                }
+
+                if (commandLower !== 'clear' || responseLine.textContent !== '') {
+                    terminalHistory.appendChild(responseLine);
+                }
+
+                this.value = '';
+                terminalBody.scrollTop = terminalBody.scrollHeight;
+            }
+        });
+        
+        terminalBody.addEventListener('click', () => {
+            if (terminalBody.classList.contains('block')) {
+                terminalInput.focus();
+            }
+        });
+    </script>
 </body>
 </html>
